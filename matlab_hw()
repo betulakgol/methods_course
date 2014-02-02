@@ -1,0 +1,148 @@
+function matlab_hw()
+
+% 1. When finding the number of elements in a vector
+% (i.e., a one-dimensional matrix), what is the difference 
+% between the output of "length" and "size"? 
+
+ 1. Size gives the number of dimensions(columns and rows) in a matrix, length gives 
+the maximum number of dimensions of the matrix. 
+
+% 2.  Describe in words (and without plugging into MATLAB directly) what...
+
+% Insert answer here
+% 3. Explain what the following code does at a conceptual level ...
+
+% Insert answer here
+3.m,n >2 so only m =3, n=3.n=4 will be using as a variable. It will create two 
+matrix I and J. After we add I and J to X seperately we created two different 
+version of X matrix and subtract the second matrix from the first matrix. 
+It convert I,J,and p to emty matrix and do the same process for the second variable.
+% 4. If A is defined as "A = [4 5 6; 1 2 3; 7 8 9]", what ...
+
+% Insert answer here
+4. A.^2 finds the multiplication on each number with itself.
+A^2 multiplies the matrix with itself
+
+% write code to initialize vars, execute all functions
+% (i.e., so hw() can be called to display output for all functions)
+fprint('Calling q5\n');
+% write code to initialize vars, call q5
+
+5.
+function t = q5(A)
+x = size(A,1);
+y = size(A,2);
+z = length(A);
+t=[x y z]
+end
+A = [1 3 5 7;7 9 11 13]
+q5(A)
+
+fprint('Calling q6\n');
+
+% write code to initialize vars, call q6
+6.
+    function x = q6(A)
+        n = numel(A);
+        if (n>6) || (n==6)
+            x = A(end-2:-1:1); 
+        end
+    end   
+ A =[ 1 2 3 4 5 6 7 8 9 10];
+fprint('Calling q7\n');
+% write code to initialize vars, call q7
+
+7.
+function Out = q7(M,x,y)
+    Out = M(x,y);
+end
+
+fprint('Calling q8\n');
+% write code to initialize vars, call q8
+
+8.
+function z = q8(A,B)
+    l1 = size(A,1);
+    l2 = size(B,1);
+    id1 = A(1:l1,1);
+    id2 = B(1:l2,1);
+    s1 = [];
+    s2 = [];
+    
+    for i=1:l2;
+        for j=1:l1;
+                if((i<j) || (i==j));
+                     x = B(i,:);
+                     y = A(j,2:1:end);
+                else
+                    x = B(i,:);
+                    y= [0 0 0];
+                end
+                
+                a = [x y]
+        end
+         out1 = [s1;a]
+    end
+    for i=1:l1;
+        for j=1:l2;
+            if (A(i)==B(j));
+                %x = A(i,:);
+                %y = B(j,2:1:end);
+                
+                hemotocrit = B(j,2);
+                if((hemotocrit < 42) || (hemotocrit == 42));
+                    id =A(:,1);
+                    age = A(:,2);
+                    b_pressure = sort(A(:,3));
+                    a = [id age b_pressure];
+                end
+            end
+            [~,a1] = sort( a(:,2) );
+            a2 = a(a1,:);  
+        end
+         out2 = [s2;a2];
+    end
+    z = out1;
+    z = out2;
+   
+end
+
+
+fprint('Calling q9\n');
+% write code to initialize vars, call q9
+
+9.
+function x = q81(n,A)
+       for i=1:n
+             a = randi([1 4],1,3);
+             C = mat2cell(A(a,:));
+             celldisp(C);
+                x = C{:}
+                
+       end
+end
+
+function q5(matrix)
+% Create a function that accepts a matrix as a parameter and prints out the
+% following information: number of rows, number of columns, and number of 
+% elements in the array.
+
+
+function q6(vec)
+% Create a function that accepts a vector as a parameter.
+% Test to make sure that the vector has at least 6 elements.
+% Print out the vector elements reversed starting with the element third
+% from the end using colon indexing
+
+function q7()
+% Create a function that accepts a matrix and two other parameters x and y.
+% The function should use the parameters to output the subarray indexed by x and y 
+
+function q8()
+% You are presented with two data tables.
+% a) join the two arrays according to patient id
+% b) select the patients with hematocrit <= 42 ...
+
+function q9()
+% Write a function that randomly splits (by row)
+% an array into n non-overlapping sets.  
